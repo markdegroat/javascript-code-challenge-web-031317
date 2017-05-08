@@ -25,10 +25,13 @@ $(document).ready(function(){
 
   $("#note-form").submit(function(e){
     e.preventDefault
-    var comment = new Comment($("input:text").val())
-    comment_list.addComment(comment)
-    $("input:text").val('')
-    $("#comment-list").html(comment_list.render())
+    //preventing user from adding empty comments
+    if($("input:text").val() != ''){
+      var comment = new Comment($("input:text").val())
+      comment_list.addComment(comment)
+      $("input:text").val('')
+      $("#comment-list").html(comment_list.render())
+    }
     return false
   })
 
