@@ -22,25 +22,13 @@ function CommentList(array_of_comments){
 
 function ContainsSwearWord(string){
   var swear_bool = false
-
-  if(string.toLowerCase().indexOf("fuck") >= 0){
-    swear_bool = "true"
-  }
-  if(string.toLowerCase().indexOf("shit") >= 0){
-    swear_bool = "true"
-  }
-  if(string.toLowerCase().indexOf("ass") >= 0){
-    swear_bool = "true"
-  }
-  if(string.toLowerCase().indexOf("butt") >= 0){
-    swear_bool = "true"
-  }
-  if(string.toLowerCase().indexOf("stupid") >= 0){
-    swear_bool = "true"
-  }
-  if(string.toLowerCase().indexOf("mark") >= 0){
-    swear_bool = "true"
-  }
+  //add any words to this array that you want to filter users from saying
+  curse_words = ["fuck", "shit", "asshole", "bastard", "bitch", "christ", "crap", "cunt", "nigger", "nigga", "twat"]
+  curse_words.forEach(function(element){
+    if(string.toLowerCase().indexOf(element) >= 0){
+      swear_bool = "true"
+    }
+  })
   return swear_bool
 }
 
